@@ -1,0 +1,1 @@
+params = YAML::load_file(File.join(__dir__, 'params.yml'))
