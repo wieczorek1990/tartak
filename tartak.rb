@@ -6,6 +6,7 @@ class Window < Gosu::Window
   def initialize
     super WIDTH, HEIGHT, false
     self.caption = "Tartak"
+    @last_frame = Gosu::milliseconds
   end
   
   def update
