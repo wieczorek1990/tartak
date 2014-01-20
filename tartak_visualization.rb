@@ -20,9 +20,9 @@ class Window < Gosu::Window
   end
 
   def draw_square(x, y, w, h, c)
-    draw_quad(x, y, c,
-              x+w, y, c,
-              x, y+h, c,
+    draw_quad(x,   y,   c,
+              x+w, y,   c,
+              x,   y+h, c,
               x+w, y+h, c)
   end
 

@@ -1,3 +1,12 @@
-maszyn_do_korowania: 3
-maszyn_do_ciecia_na_belki: 1
-maszyn_do_ciecia_na_deski: 2
+barking_machines: 3
+cutting_into_beam_machines: 1
+cutting_into_board_machines: 2
+input_magazine_starting_capacity: 8
+input_magazine_maximal_capacity: 10
+output_magazine_starting_capacity: 8
+output_magazine_maximal_capacity: 10
+simulation_duration: 10
+wood_arrived_count: 2
+wood_arrival_cycle_time: 3
+wood_batch: 2
+magazine_barking_transport_duration: 2
