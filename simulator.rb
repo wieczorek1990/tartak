@@ -18,6 +18,7 @@ class Simulator
     for t in 0..@duration-1
       puts "Time = #{t}".green
       new_events = []
+      to_delete = []
       @events.each do |event|
         if event.start_of_life?
           event.start_of_life
@@ -26,7 +27,7 @@ class Simulator
         event.process
         event.update_time
         if event.end_of_life?
-          @events.delete(event)
+          to_delete.push(event)
           heritage = event.end_of_life
           if heritage.is_a?(Event)
             new_events.push(heritage)
@@ -36,6 +37,9 @@ class Simulator
         end
       end
       @events.concat(new_events)
+      to_delete.each do |event|
+        @events.delete(event)
+      end
     end
   end
 end
