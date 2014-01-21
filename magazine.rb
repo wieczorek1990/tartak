@@ -10,6 +10,7 @@ class Magazine
   end
   def add_wood(wood)
     if @capacity + wood > @maximum_capacity
+      # TODO
       puts 'Too much wood'.on_red
       @capacity = @maximum_capacity
     else
@@ -18,6 +19,7 @@ class Magazine
   end
   def take_wood(wood)
     if @capacity - wood < 0
+      # TODO
       puts 'Not enough wood'.on_red
     else
       @capacity -= wood

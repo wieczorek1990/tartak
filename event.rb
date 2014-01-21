@@ -1,14 +1,14 @@
 require 'colorize'
 
 class Event
-  def initialize(name, duration, ending_event = nil)
+  attr_reader :name
+  def initialize(name, duration)
     if duration < 1
       raise 'WRONG DURATION'
     end
     @name = name
     @duration = duration
     @time = 0
-    @ending_event = ending_event
   end
   def info
     puts "Processing event \'#{@name}\'".blue
@@ -30,6 +30,5 @@ class Event
   end
   def end_of_life
     puts "Event #{@name} ending".red
-    @ending_event unless @ending_event.nil?
   end
 end

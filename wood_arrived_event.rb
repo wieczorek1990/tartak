@@ -1,17 +1,10 @@
 require 'colorize'
-require_relative 'event'
+require_relative 'wood_event'
 
-class WoodArrivedEvent < Event
-  def initialize(name, duration, magazine, wood)
-    super(name, duration)
-    @magazine = magazine
-    @wood = wood
-  end
+class WoodArrivedEvent < WoodEvent
   def start_of_life
     puts "Wood arrived (#{@wood})".yellow
     @magazine.add_wood(@wood)
-  end
-  def process
   end
   def end_of_life
     WoodArrivedEvent.new(@name, @duration, @magazine, @wood)

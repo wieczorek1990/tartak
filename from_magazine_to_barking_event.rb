@@ -2,8 +2,8 @@ require 'colorize'
 require_relative 'event'
 
 class FromMagazineToBarkingEvent < Event
-  def initialize(name, duration, ending_event, magazine, wood)
-    super(name, duration, ending_event)
+  def initialize(name, duration, magazine, wood)
+    super(name, duration)
     @magazine = magazine
     @wood = wood
   end
@@ -11,6 +11,9 @@ class FromMagazineToBarkingEvent < Event
     @magazine.take_wood(@wood)
   end
   def process
-    "Transporting #{@wood} wood from magazine to barking".yellow
+    puts "Transporting #{@wood} wood from magazine to barking".yellow
+  end
+  def end_of_life
+    Event.new('end', 1)
   end
 end
