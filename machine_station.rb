@@ -1,30 +1,27 @@
 class MachineStation
-  def initialize(machine, count)
-    @machine = machine
-    @count = count
+  attr_reader :machine_count
+  def initialize(machine_count)
+    @machine_count = machine_count
     @working = 0
   end
   def full
-    @working == @count
+    @working == @machine_count
   end
   def free_machines
-    @count - @working
+    @machine_count - @working
   end
   def reserve(count)
     if count > free_machines
-      raise 'COULDNT RESERVE MACHINES'
+      raise 'COULDN\'T RESERVE MACHINES'
     else
       @working += count
     end
   end
   def free(count)
     if count > @working
-      raise 'COULNDT FREE MACHINES'
+      raise 'COULND\'T FREE MACHINES'
     else
       @working -= count
     end
-  end
-  def machine_class
-    @machine.class
   end
 end

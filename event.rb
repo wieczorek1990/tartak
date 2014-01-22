@@ -26,7 +26,7 @@ class Event
     puts "Event #{@name} starting".red
   end
   def end_of_life?
-    @time == @duration
+    @time >= @duration
   end
   def end_of_life
     puts "Event #{@name} ending".red

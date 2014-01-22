@@ -8,9 +8,8 @@ class Magazine
   def process
     puts "Capacity is #{@capacity}/#{@maximum_capacity}".yellow
   end
-  def add_wood(wood)
+  def put_wood(wood)
     if @capacity + wood > @maximum_capacity
-      # TODO
       puts 'Too much wood'.on_red
       @capacity = @maximum_capacity
     else
@@ -19,10 +18,11 @@ class Magazine
   end
   def take_wood(wood)
     if @capacity - wood < 0
-      # TODO
       puts 'Not enough wood'.on_red
+      0
     else
       @capacity -= wood
+      wood
     end
   end
 end

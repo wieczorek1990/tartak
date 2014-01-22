@@ -1,19 +1,19 @@
 require 'colorize'
-require_relative 'event'
+require_relative 'magazine_event'
 
-class FromMagazineToBarkingEvent < Event
-  def initialize(name, duration, magazine, wood)
-    super(name, duration)
-    @magazine = magazine
-    @wood = wood
+class FromMagazineToBarkingEvent < MagazineEvent
+  def info
   end
   def start_of_life
-    @magazine.take_wood(@wood)
+    wood = @magazine.take_wood(@wood)
+    if wood == 0
+      @time = @duration
+    end
   end
   def process
-    puts "Transporting #{@wood} wood from magazine to barking".yellow
+    puts "Transporting wood from magazine to barking".yellow unless @time == @duration
   end
   def end_of_life
-    Event.new('end', 1)
+    @schedule.barking += 1
   end
 end
