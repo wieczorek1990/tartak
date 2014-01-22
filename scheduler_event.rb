@@ -33,12 +33,12 @@ class SchedulerEvent < Event
     barking.free_machines.times do
       events << FromMagazineToBarkingEvent.new('magazine-barking', @params['magazine_barking_transport_duration'], @schedule, @input_magazine, @params['wood_batch'])
     end
-    barking.reserve(barking.free_machines)
 
-    reserved_barking = [@schedule.barking, @machine_stations[BARKING].machine_count].min
+    reserved_barking = @schedule.barking
     reserved_barking.times do
       events << BarkingEvent.new('barking', @params['barking_duration'], @schedule, barking)
     end
+    barking.reserve(reserved_barking)
     @schedule.barking -= reserved_barking
 
     @schedule.barking_beams.times do
@@ -46,10 +46,12 @@ class SchedulerEvent < Event
     end
     @schedule.barking_beams = 0
 
-    reserved_beams = [@schedule.beams, @machine_stations[BEAMS].machine_count].min
+    beams = @machine_stations[BEAMS]
+    reserved_beams = [beams.free_machines, @schedule.beams].min
     reserved_beams.times do
-      events << BeamsEvent.new('beams', @params['beams_duration'], @schedule, @machine_stations[BEAMS])
+      events << BeamsEvent.new('beams', @params['beams_duration'], @schedule, beams)
     end
+    beams.reserve(reserved_beams)
     @schedule.beams -= reserved_beams
 
     @schedule.beams_boards.times do
@@ -57,10 +59,12 @@ class SchedulerEvent < Event
     end
     @schedule.beams_boards = 0
 
-    reserved_boards = [@schedule.boards, @machine_stations[BOARDS].machine_count].min
+    boards = @machine_stations[BOARDS]
+    reserved_boards = [boards.free_machines, @schedule.boards].min
     reserved_boards.times do
-      events << BoardsEvent.new('boards', @params['boards_duration'], @schedule, @machine_stations[BOARDS])
+      events << BoardsEvent.new('boards', @params['boards_duration'], @schedule, boards)
     end
+    boards.reserve(reserved_boards)
     @schedule.boards -= reserved_boards
 
     @schedule.boards_magazine.times do

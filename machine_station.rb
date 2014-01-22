@@ -1,5 +1,4 @@
 class MachineStation
-  attr_reader :machine_count
   def initialize(machine_count)
     @machine_count = machine_count
     @working = 0

@@ -5,15 +5,14 @@ class FromMagazineToBarkingEvent < MagazineEvent
   def info
   end
   def start_of_life
-    wood = @magazine.take_wood(@wood)
-    if wood == 0
+    if @magazine.take_wood(@wood) == 0
       @time = @duration
     end
   end
   def process
-    puts "Transporting wood from magazine to barking".yellow unless @time == @duration
+    puts "Transporting wood from magazine to barking".yellow unless end_of_life?
   end
   def end_of_life
-    @schedule.barking += 1
+    @schedule.barking += 1 unless end_of_life?
   end
 end
