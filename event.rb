@@ -1,5 +1,3 @@
-require 'colorize'
-
 class Event
   attr_reader :name
   def initialize(name, duration)
@@ -9,6 +7,7 @@ class Event
     @name = name
     @duration = duration
     @time = 0
+    @killed = false
   end
   def info
     puts "Processing event \'#{@name}\'".blue
@@ -30,5 +29,8 @@ class Event
   end
   def end_of_life
     puts "Event #{@name} ending".red
+  end
+  def kill
+    @killed = true
   end
 end

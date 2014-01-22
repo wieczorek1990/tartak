@@ -1,4 +1,3 @@
-require 'colorize'
 require_relative 'machine_station_event'
 
 class BoardsEvent < MachineStationEvent

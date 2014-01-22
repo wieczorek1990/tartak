@@ -1,5 +1,3 @@
-require 'colorize'
-
 class Magazine
   def initialize(capacity, maximum_capacity)
     @capacity = capacity

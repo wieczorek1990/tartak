@@ -1,5 +1,5 @@
 class Schedule
-  attr_accessor :barking, :barking_beams, :beams, :beams_boards, :boards, :boards_magazine
+  attr_accessor :barking, :barking_beams, :beams, :beams_boards, :boards, :boards_magazine, :beams_magazine
   def initialize
     @barking = 0
     @barking_beams = 0
@@ -7,5 +7,6 @@ class Schedule
     @beams_boards = 0
     @boards = 0
     @boards_magazine = 0
+    @beams_magazine = 0
   end
 end

@@ -6,6 +6,7 @@ require_relative 'beams_event'
 require_relative 'from_beams_to_boards_event'
 require_relative 'boards_event'
 require_relative 'from_boards_to_magazine_event'
+require_relative 'from_beams_to_magazine_event'
 
 class SchedulerEvent < Event
   BARKING=0
@@ -34,7 +35,7 @@ class SchedulerEvent < Event
       events << FromMagazineToBarkingEvent.new('magazine-barking', @params['magazine_barking_transport_duration'], @schedule, @input_magazine, @params['wood_batch'])
     end
 
-    reserved_barking = @schedule.barking
+    reserved_barking = [barking.free_machines, @schedule.barking].min
     reserved_barking.times do
       events << BarkingEvent.new('barking', @params['barking_duration'], @schedule, barking)
     end
@@ -49,7 +50,7 @@ class SchedulerEvent < Event
     beams = @machine_stations[BEAMS]
     reserved_beams = [beams.free_machines, @schedule.beams].min
     reserved_beams.times do
-      events << BeamsEvent.new('beams', @params['beams_duration'], @schedule, beams)
+      events << BeamsEvent.new('beams', @params['beams_duration'], @schedule, beams, @params['beams_percentage'])
     end
     beams.reserve(reserved_beams)
     @schedule.beams -= reserved_beams
@@ -58,6 +59,11 @@ class SchedulerEvent < Event
       events << FromBeamsToBoardsEvent.new('beams-boards', @params['beams_boards_transport_duration'], @schedule)
     end
     @schedule.beams_boards = 0
+
+    @schedule.beams_magazine.times do
+      events << FromBeamsToMagazineEvent.new('beams-magazine', @params['beams_magazine_transport_duration'], @schedule, @output_magazine, @params['wood_batch'])
+    end
+    @schedule.beams_magazine = 0
 
     boards = @machine_stations[BOARDS]
     reserved_boards = [boards.free_machines, @schedule.boards].min
