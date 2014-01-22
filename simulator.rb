@@ -1,4 +1,4 @@
-require 'pp'
+require 'colorize'
 require_relative 'event'
 require_relative 'magazine'
 require_relative 'scheduler_event'
@@ -17,30 +17,33 @@ class Simulator
   end
   def run
     for t in 0..@duration-1
-      puts "Time = #{t}".green
-      new_events = []
-      to_delete = []
-      @events.each do |event|
-        if event.start_of_life?
-          event.start_of_life
-        end
-        event.info
-        event.process
-        event.update_time
-        if event.end_of_life?
-          to_delete.push(event)
-          heritage = event.end_of_life
-          if heritage.is_a?(Event)
-            new_events.push(heritage)
-          elsif heritage.is_a?(Array)
-            new_events.concat(heritage)
-          end
+      phaze(t)
+    end
+  end
+  def phaze(t)
+    puts "Time = #{t}".green
+    new_events = []
+    to_delete = []
+    @events.each do |event|
+      if event.start_of_life?
+        event.start_of_life
+      end
+      event.info
+      event.process
+      event.update_time
+      if event.end_of_life?
+        to_delete.push(event)
+        heritage = event.end_of_life
+        if heritage.is_a?(Event)
+          new_events.push(heritage)
+        elsif heritage.is_a?(Array)
+          new_events.concat(heritage)
         end
       end
-      @events.concat(new_events)
-      to_delete.each do |event|
-        @events.delete(event)
-      end
+    end
+    @events.concat(new_events)
+    to_delete.each do |event|
+      @events.delete(event)
     end
   end
 end
