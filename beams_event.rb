@@ -1,9 +1,9 @@
 require_relative 'machine_station_event'
 
 class BeamsEvent < MachineStationEvent
-  def initialize(name, duration, schedule, machine_station, beams_percentage)
+  def initialize(name, duration, schedule, machine_station, boards_percentage)
     super(name, duration, schedule, machine_station)
-    @beams_percentage = beams_percentage
+    @boards_percentage = boards_percentage
   end
   def info
   end
@@ -12,7 +12,7 @@ class BeamsEvent < MachineStationEvent
   end
   def end_of_life
     puts 'Cutting into beams ending'.red
-    if rand < @beams_percentage
+    if rand < @boards_percentage
       @schedule.beams_boards += 1
     else
       @schedule.beams_magazine += 1

@@ -7,6 +7,6 @@ class FromBeamsToMagazineEvent < MagazineEvent
     puts "Transporting wood from beams to magazine".yellow
   end
   def end_of_life
-    @magazine.put_wood(@wood)
+    @magazine.put_wood(@wood, true)
   end
 end

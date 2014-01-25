@@ -55,7 +55,7 @@ class SchedulerEvent < Event
     beams = @machine_stations[Machines::BEAMS]
     reserved_beams = [beams.free_machines, @schedule.beams].min
     reserved_beams.times do
-      events << BeamsEvent.new('beams', @params['beams_duration'], @schedule, beams, @params['beams_percentage'])
+      events << BeamsEvent.new('beams', @params['beams_duration'], @schedule, beams, @params['boards_percentage'])
     end
     beams.reserve(reserved_beams)
     @schedule.beams -= reserved_beams

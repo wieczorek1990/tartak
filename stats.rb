@@ -5,8 +5,8 @@ class Stats
     @idle = 0
   end
   def to_s
-    percent = @working.fdiv(@working + @idle)
-    "Machine utilization = #{percent}\n" +
-    "The rest is here."
+    percent = @working.fdiv(@working + @idle) * 100
+    "Machine utilization = #{percent.round(2)}%\n" +
+    ""
   end
 end
