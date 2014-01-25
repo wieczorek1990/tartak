@@ -7,6 +7,7 @@ class BarkingEvent < MachineStationEvent
     puts 'Barking'.yellow
   end
   def end_of_life
+    puts 'Barking ending'.red
     @schedule.barking_beams += 1
     @machine_station.free(1)
   end

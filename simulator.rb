@@ -1,7 +1,9 @@
 require 'colorize'
+require 'pp'
 require_relative 'event'
 require_relative 'magazine'
 require_relative 'scheduler_event'
+require_relative 'transporting_event'
 
 class Simulator
   def initialize(events, duration)
@@ -44,6 +46,24 @@ class Simulator
     @events.concat(new_events)
     to_delete.each do |event|
       @events.delete(event)
+    end
+    @events.sort! do |a, b|
+      case
+        when (a.kind_of?(TransportingEvent) and not b.kind_of?(TransportingEvent))
+          -1
+        when (a.kind_of?(TransportingEvent) and b.kind_of?(TransportingEvent))
+          0
+        else
+          1
+      end
+    end
+    @events.sort! do |a, b|
+      case
+        when a.kind_of?(SchedulerEvent)
+          1
+        else
+          -1
+      end
     end
   end
 end

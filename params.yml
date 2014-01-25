@@ -1,4 +1,7 @@
-simulation_duration: 20
+simulation_duration: 6
+beams_percentage: 0.81633
+parallel_carts: 1
+wood_batch: 1
 barking_machines: 3
 beams_machines: 1
 boards_machines: 2
@@ -10,7 +13,6 @@ wood_arrived_count: 2
 wood_sold_count: 2
 wood_arrival_cycle_time: 2
 wood_selling_cycle_time: 2
-wood_batch: 2
 magazine_barking_transport_duration: 1
 barking_beams_transport_duration: 1
 beams_boards_transport_duration: 1
@@ -19,4 +21,3 @@ beams_magazine_transport_duration: 1
 barking_duration: 3
 beams_duration: 1
 boards_duration: 2
-beams_percentage: 0.8

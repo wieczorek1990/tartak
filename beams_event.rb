@@ -11,6 +11,7 @@ class BeamsEvent < MachineStationEvent
     puts 'Cutting into beams'.yellow
   end
   def end_of_life
+    puts 'Cutting into beams ending'.red
     if rand < @beams_percentage
       @schedule.beams_boards += 1
     else

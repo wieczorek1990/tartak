@@ -1,6 +1,6 @@
-require_relative 'scheduled_event'
+require_relative 'transporting_event'
 
-class FromBarkingToBeamsEvent < ScheduledEvent
+class FromBarkingToBeamsEvent < TransportingEvent
   def info
   end
   def process
