@@ -1,6 +1,6 @@
-require_relative 'transporting_event'
+require_relative 'transport_event'
 
-class MagazineEvent < TransportingEvent
+class MagazineEvent < TransportEvent
   def initialize(name, duration, schedule, magazine, wood)
     super(name, duration, schedule)
     @magazine = magazine

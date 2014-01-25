@@ -12,4 +12,7 @@ class WoodSoldEvent < WoodEvent
   def end_of_life
     WoodSoldEvent.new(@name, @duration, @magazine, @wood, @stats)
   end
+  def sort
+    WOOD
+  end
 end

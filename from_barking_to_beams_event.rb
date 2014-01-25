@@ -1,6 +1,6 @@
-require_relative 'transporting_event'
+require_relative 'transport_event'
 
-class FromBarkingToBeamsEvent < TransportingEvent
+class FromBarkingToBeamsEvent < TransportEvent
   def info
   end
   def process
@@ -8,8 +8,5 @@ class FromBarkingToBeamsEvent < TransportingEvent
   end
   def end_of_life
     @schedule.beams += 1
-  end
-  def sort
-    BARKING_BEAMS
   end
 end

@@ -1,7 +1,7 @@
 require_relative 'event'
 require_relative 'magazine'
 require_relative 'scheduler_event'
-require_relative 'transporting_event'
+require_relative 'transport_event'
 require 'pp'
 class Simulator
   def initialize(events, duration)
