@@ -11,4 +11,7 @@ class BoardsEvent < MachineStationEvent
     @schedule.boards_magazine += 1
     @machine_station.free(1)
   end
+  def sort
+    BOARDS
+  end
 end

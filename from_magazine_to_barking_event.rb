@@ -13,4 +13,7 @@ class FromMagazineToBarkingEvent < MagazineEvent
   def end_of_life
     @schedule.barking += 1
   end
+  def sort
+    MAGAZINE_BARKING
+  end
 end

@@ -9,4 +9,7 @@ class FromBarkingToBeamsEvent < TransportingEvent
   def end_of_life
     @schedule.beams += 1
   end
+  def sort
+    BARKING_BEAMS
+  end
 end

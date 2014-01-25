@@ -1,4 +1,7 @@
+require_relative 'sort'
+
 class Event
+  include Sort
   attr_reader :name
   def initialize(name, duration)
     if duration < 1
@@ -32,5 +35,8 @@ class Event
   end
   def kill
     @killed = true
+  end
+  def sort
+    EVENT
   end
 end

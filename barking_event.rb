@@ -11,4 +11,7 @@ class BarkingEvent < MachineStationEvent
     @schedule.barking_beams += 1
     @machine_station.free(1)
   end
+  def sort
+    BARKING
+  end
 end

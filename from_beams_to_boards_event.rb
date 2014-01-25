@@ -9,4 +9,7 @@ class FromBeamsToBoardsEvent < TransportingEvent
   def end_of_life
     @schedule.boards += 1
   end
+  def sort
+    BEAMS_BOARDS
+  end
 end

@@ -6,6 +6,9 @@ boards_from_beam: 4
 barking_machines: 3
 beams_machines: 1
 boards_machines: 2
+wood_price: 250
+beam_price: 495
+board_price: 125
 barking_duration: 90
 beams_duration: 30
 boards_duration: 60

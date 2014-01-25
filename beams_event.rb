@@ -19,4 +19,7 @@ class BeamsEvent < MachineStationEvent
     end
     @machine_station.free(1)
   end
+  def sort
+    BEAMS
+  end
 end

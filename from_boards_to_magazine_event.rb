@@ -9,4 +9,7 @@ class FromBoardsToMagazineEvent < MagazineEvent
   def end_of_life
     @magazine.put_wood(@wood, false)
   end
+  def sort
+    BOARDS_MAGAZINE
+  end
 end

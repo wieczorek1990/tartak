@@ -9,4 +9,7 @@ class FromBeamsToMagazineEvent < MagazineEvent
   def end_of_life
     @magazine.put_wood(@wood, true)
   end
+  def sort
+    BEAMS_MAGAZINE
+  end
 end

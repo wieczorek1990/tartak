@@ -94,4 +94,7 @@ class SchedulerEvent < Event
     @stats.working += barking.working_machines + beams.working_machines + boards.working_machines
     events << SchedulerEvent.new(@name, @duration, @params, @machine_stations, @input_magazine, @output_magazine, @schedule, @stats)
   end
+  def sort
+    SCHEDULER
+  end
 end
