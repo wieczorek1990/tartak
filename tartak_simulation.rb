@@ -11,12 +11,12 @@ require_relative 'machine_station'
 require_relative 'schedule'
 require_relative 'machines'
 
-DEBUG = false
+DEBUG = true
 
 f = File::open('/tmp/log.log', 'w')
 begin
   stdout = STDOUT.clone
-  STDOUT.reopen(f) if DEBUG
+  STDOUT.reopen(f) unless DEBUG
 
   params = YAML::load_file(File.join(__dir__, 'params.yml'))
   stats = Stats.new(params)
@@ -35,6 +35,6 @@ begin
   Simulator.new(events, params['simulation_duration']).run
 ensure
   f.close
-  STDOUT.reopen(stdout) if DEBUG
+  STDOUT.reopen(stdout) unless DEBUG
   puts stats
 end
