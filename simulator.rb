@@ -1,5 +1,3 @@
-require 'colorize'
-require 'pp'
 require_relative 'event'
 require_relative 'magazine'
 require_relative 'scheduler_event'
