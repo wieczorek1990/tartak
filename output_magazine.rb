@@ -1,11 +1,11 @@
-require_relative 'magazine'
+require_relative 'input_magazine'
 
-class OutputMagazine < Magazine
+class OutputMagazine < InputMagazine
   attr_reader :beams, :boards, :boards_from_beam
   def initialize(capacity, maximum_capacity, boards_from_beam, beams, boards)
     super(capacity, maximum_capacity)
     if capacity != beams + boards/boards_from_beam
-      raise 'WRONG CAPACITY'
+      raise "WRONG CAPACITY\n#{capacity} != #{beams} + #{boards}/#{boards_from_beam}"
     end
     @boards_from_beam = boards_from_beam
     @beams = beams
