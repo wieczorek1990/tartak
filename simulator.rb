@@ -2,7 +2,7 @@ require_relative 'event'
 require_relative 'input_magazine'
 require_relative 'scheduler_event'
 require_relative 'transport_event'
-require 'pp'
+
 class Simulator
   def initialize(events, duration)
     unless events.is_a?(Array)
