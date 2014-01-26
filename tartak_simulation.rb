@@ -17,8 +17,13 @@ f = File::open('/tmp/log.log', 'w')
 begin
   stdout = STDOUT.clone
   STDOUT.reopen(f) unless DEBUG
-
-  params = YAML::load_file(File.join(__dir__, 'params.yml'))
+  if ARGV.count == 0
+    filename = 'params.yml'
+  else
+    filename = ARGV[0]
+  end
+  puts "Running with params from #{filename}"
+  params = YAML::load_file(File.join(__dir__, filename))
   stats = Stats.new(params)
   input_magazine = InputMagazine.new(params['input_magazine_starting_capacity'], params['input_magazine_maximal_capacity'])
   output_magazine = OutputMagazine.new(params['output_magazine_starting_capacity'], params['output_magazine_maximal_capacity'],
