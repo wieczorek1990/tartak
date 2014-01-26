@@ -5,4 +5,6 @@ class ScheduledEvent < Event
     super(name, duration)
     @schedule = schedule
   end
+  def schedule_op
+  end
 end

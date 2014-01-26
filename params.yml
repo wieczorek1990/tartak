@@ -1,4 +1,4 @@
-simulation_duration: 120000
+simulation_duration: 120
 boards_percentage: 0.81633
 parallel_carts: 1
 wood_batch: 2

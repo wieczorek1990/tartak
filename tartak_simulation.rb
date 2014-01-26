@@ -30,7 +30,7 @@ begin
   machine_stations[Machines::BEAMS] = MachineStation.new(params['beams_machines'])
   machine_stations[Machines::BOARDS] = MachineStation.new(params['boards_machines'])
   schedule = Schedule.new
-  scheduler_event = SchedulerEvent.new('scheduler', 1, params, machine_stations, input_magazine, output_magazine, schedule, stats)
+  scheduler_event = SchedulerEvent.new('scheduler', 1, schedule, params, machine_stations, input_magazine, output_magazine, stats)
   events = [wood_arrived_event, wood_sold_event, scheduler_event]
   Simulator.new(events, params['simulation_duration']).run
 ensure

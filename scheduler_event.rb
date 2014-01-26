@@ -1,4 +1,4 @@
-require_relative 'event'
+require_relative 'scheduled_event'
 require_relative 'from_magazine_to_barking_event'
 require_relative 'barking_event'
 require_relative 'from_barking_to_beams_event'
@@ -9,14 +9,13 @@ require_relative 'from_boards_to_magazine_event'
 require_relative 'from_beams_to_magazine_event'
 require_relative 'machines'
 
-class SchedulerEvent < Event
-  def initialize(name, duration, params, machine_stations, input_magazine, output_magazine, schedule, stats)
-    super(name, duration)
+class SchedulerEvent < ScheduledEvent
+  def initialize(name, duration, schedule, params, machine_stations, input_magazine, output_magazine, stats)
+    super(name, duration, schedule)
     @params = params
     @machine_stations = machine_stations
     @input_magazine = input_magazine
     @output_magazine = output_magazine
-    @schedule = schedule
     @stats = stats
   end
   def start_of_life
@@ -92,7 +91,7 @@ class SchedulerEvent < Event
 
     @stats.idle += barking.free_machines + beams.free_machines + boards.free_machines
     @stats.working += barking.working_machines + beams.working_machines + boards.working_machines
-    events << SchedulerEvent.new(@name, @duration, @params, @machine_stations, @input_magazine, @output_magazine, @schedule, @stats)
+    events << SchedulerEvent.new(@name, @duration, @schedule, @params, @machine_stations, @input_magazine, @output_magazine, @stats)
   end
   def sort
     SCHEDULER

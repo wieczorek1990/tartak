@@ -41,6 +41,11 @@ class Simulator
         end
       end
     end
+    @events.each do |event|
+      if event.end_of_life? and event.kind_of?(ScheduledEvent)
+        event.schedule_op
+      end
+    end
     @events.concat(new_events)
     to_delete.each do |event|
       @events.delete(event)

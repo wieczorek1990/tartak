@@ -11,6 +11,8 @@ class FromMagazineToBarkingEvent < MagazineEvent
     puts "Transporting wood from magazine to barking".yellow
   end
   def end_of_life
+  end
+  def schedule_op
     @schedule.barking += 1
   end
 end
