@@ -5,4 +5,6 @@ class MachineStationEvent < ScheduledEvent
     super(name, duration, schedule)
     @machine_station = machine_station
   end
+  def start_of_life
+  end
 end

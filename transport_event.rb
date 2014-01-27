@@ -7,4 +7,6 @@ class TransportEvent < ScheduledEvent
   def sort
     TRANSPORT
   end
+  def start_of_life
+  end
 end

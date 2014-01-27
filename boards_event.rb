@@ -7,7 +7,7 @@ class BoardsEvent < MachineStationEvent
     puts 'Cutting into boards'.yellow
   end
   def end_of_life
-    puts 'Cutting into boards ending'.red
+    #puts 'Cutting into boards ending'.red
     @machine_station.free(1)
     @schedule.boards_magazine += 1
   end
