@@ -1,4 +1,13 @@
-simulation1
+50percent
+Machine utilization: 49.68%
+Wood buyed: 150
+Beams sold: 27
+Boards sold: 492
+Cost: 75000
+Income: 150000
+Profit: 75000
+
+year0
 Machine utilization: 94.01%
 Wood buyed: 12500
 Beams sold: 2250
