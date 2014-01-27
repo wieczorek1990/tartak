@@ -7,8 +7,6 @@ class FromBarkingToBeamsEvent < TransportEvent
     puts "Transporting wood from barking to beams".yellow
   end
   def end_of_life
-  end
-  def schedule_op
     @schedule.beams += 1
   end
 end

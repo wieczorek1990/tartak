@@ -13,15 +13,13 @@ class BeamsEvent < MachineStationEvent
   def end_of_life
     puts 'Cutting into beams ending'.red
     @machine_station.free(1)
-  end
-  def sort
-    BEAMS
-  end
-  def schedule_op
     if rand < @boards_percentage
       @schedule.beams_boards += 1
     else
       @schedule.beams_magazine += 1
     end
+  end
+  def sort
+    BEAMS
   end
 end
