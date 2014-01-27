@@ -43,7 +43,7 @@ Cost: 6250000
 Income: 19000000
 Profit: 12750000
 
-year4 (5, 2, 4; 2 * output magazine; wood_arrived_count: 75)
+year4 (5, 2, 4; 2 * output magazine capacity; wood_arrived_count: 75)
 Machine utilization: 85.37%
 Wood buyed: 18750
 Beams sold: 4000
