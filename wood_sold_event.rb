@@ -7,8 +7,8 @@ class WoodSoldEvent < WoodEvent
   end
   def start_of_life
     puts "Wood sold (#{@wood})".yellow
-    beams = (@boards_percentage * @wood).round
-    boards = @wood - beams
+    boards = (@boards_percentage * @wood).round
+    beams = @wood - boards
     @magazine.take_wood(beams, true)
     @magazine.take_wood(boards, false)
     @stats.beams_sold += beams

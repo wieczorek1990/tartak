@@ -1,24 +1,9 @@
 simulation1
-Machine utilization: 93.76%
+Machine utilization: 94.01%
 Wood buyed: 12500
-Beams sold: 6250
-Boards sold: 25000
+Beams sold: 2250
+Boards sold: 41000
 Cost: 6250000
 Income: 12500000
 Profit: 6250000
 
-Machine utilization: 93.68%
-Wood buyed: 12500
-Beams sold: 6250
-Boards sold: 25000
-Cost: 6250000
-Income: 12500000
-Profit: 6250000
-
-Machine utilization: 93.77%
-Wood buyed: 12500
-Beams sold: 6250
-Boards sold: 25000
-Cost: 6250000
-Income: 12500000
-Profit: 6250000

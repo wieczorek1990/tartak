@@ -20,6 +20,7 @@ class OutputMagazine < InputMagazine
     end
   end
   def take_wood(wood, is_beam)
+    super(wood)
     if is_beam and
       if @beams - wood < 0
         raise_not_enough('beams')
