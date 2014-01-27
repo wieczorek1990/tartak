@@ -29,7 +29,7 @@ begin
   output_magazine = OutputMagazine.new(params['output_magazine_starting_capacity'], params['output_magazine_maximal_capacity'],
                                        params['boards_from_beam'], params['output_magazine_beams'], params['output_magazine_boards'])
   wood_arrived_event = WoodArrivedEvent.new('wood arived', params['wood_arrival_cycle_time'], input_magazine, params['wood_arrived_count'], stats)
-  wood_sold_event = WoodSoldEvent.new('wood sold', params['wood_selling_cycle_time'], output_magazine, params['wood_sold_count'], stats)
+  wood_sold_event = WoodSoldEvent.new('wood sold', params['wood_selling_cycle_time'], output_magazine, params['wood_sold_count'], stats, params['boards_percentage'])
   machine_stations = []
   machine_stations[Machines::BARKING] = MachineStation.new(params['barking_machines'])
   machine_stations[Machines::BEAMS] = MachineStation.new(params['beams_machines'])
@@ -41,5 +41,6 @@ begin
 ensure
   f.close
   STDOUT.reopen(stdout) unless DEBUG
+  puts
   puts stats
 end

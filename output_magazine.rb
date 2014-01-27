@@ -20,11 +20,18 @@ class OutputMagazine < InputMagazine
     end
   end
   def take_wood(wood, is_beam)
-    super(wood)
     if is_beam and
-      @beams -= wood
+      if @beams - wood < 0
+        raise_not_enough('beams')
+      else
+        @beams -= wood
+      end
     else
-      @boards -= wood * @boards_from_beam
+      if @boards - wood * @boards_from_beam < 0
+        raise_not_enough('boards')
+      else
+        @boards -= wood * @boards_from_beam
+      end
     end
   end
 end

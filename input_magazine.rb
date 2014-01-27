@@ -8,18 +8,24 @@ class InputMagazine
   end
   def put_wood(wood)
     if @capacity + wood > @maximum_capacity
-      info
-      raise "TOO MUCH WOOD in #{self.class}"
+      raise_too_much
     else
       @capacity += wood
     end
   end
   def take_wood(wood)
     if @capacity - wood < 0
-      info
-      raise "NOT ENOUGH WOOD in #{self.class}"
+      raise_not_enough
     else
       @capacity -= wood
     end
+  end
+  def raise_too_much
+    info
+    raise "TOO MUCH WOOD in #{self.class}"
+  end
+  def raise_not_enough(what='wood')
+    info
+    raise "NOT ENOUGH WOOD in #{self.class} (#{what})"
   end
 end
