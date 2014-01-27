@@ -7,3 +7,38 @@ Cost: 6250000
 Income: 12500000
 Profit: 6250000
 
+year1
+Machine utilization: 93.9%
+Wood buyed: 12500
+Beams sold: 2500
+Boards sold: 47000
+Cost: 6250000
+Income: 14250000
+Profit: 8000000
+
+year2 (4, 2, 3)
+Machine utilization: 83.58%
+Wood buyed: 12500
+Beams sold: 3000
+Boards sold: 55000
+Cost: 6250000
+Income: 16750000
+Profit: 10500000
+
+year3
+Machine utilization: 83.39%
+Wood buyed: 12500
+Beams sold: 3500
+Boards sold: 62000
+Cost: 6250000
+Income: 19000000
+Profit: 12750000
+
+year4 (5, 2, 4; 2 * output magazine; wood_arrived_count: 75)
+Machine utilization: 85.37%
+Wood buyed: 18750
+Beams sold: 4000
+Boards sold: 70000
+Cost: 9375000
+Income: 21500000
+Profit: 12125000

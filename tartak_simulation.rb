@@ -18,7 +18,7 @@ begin
   stdout = STDOUT.clone
   STDOUT.reopen(f) unless DEBUG
   if ARGV.count == 0
-    filename = 'params.yml'
+    filename = 'small.yml'
   else
     filename = ARGV[0]
   end
