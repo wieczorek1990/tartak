@@ -9,7 +9,6 @@ class FromMagazineToBarkingEvent < MagazineEvent
   end
   def process
     puts "Transporting wood from magazine to barking".yellow
-    puts self.object_id
   end
   def end_of_life
     @schedule.barking += 1
