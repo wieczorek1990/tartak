@@ -1,0 +1,21 @@
+min: roznica;
+roznica = zysk -(zalozony_zysk);
+zysk = przychody -koszty;
+przychody -(zalozony_zysk) = (zalozony_obrot);
+pracownicy = (robotnicy) (administracja);
+koszty = koszty_materialowe koszty_pracownicze;
+koszty_materialowe = (cena_drewna)ilosc_sztuk_drewna;
+koszty_pracownicze = (srednia_pensja_godzinowa)pracownicy_godziny;
+pracownicy_godziny = (godziny_pracujace_w_roku)pracownicy;
+przychody = przychody_belki przychody_deski przychody_reszta;
+przychody_belki = (procent_belki)przychody;
+przychody_deski = (procent_deski)przychody;
+przychody_reszta = (procent_reszta)przychody;
+ilosc_sztuk_drewna = belki belki_na_deski;
+deski = (desek_z_belki)belki_na_deski;
+belki = (procent_belki2)ilosc_sztuk_drewna;
+belki_na_deski = (procent_deski)ilosc_sztuk_drewna;
+
+roznica > 0;
+ilosc_sztuk_drewna > 0;
+int belki, belki_na_deski, deski, ilosc_sztuk_drewna;
